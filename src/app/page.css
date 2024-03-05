@@ -1,0 +1,3 @@
+.tabs{ border-radius: 50px; overflow: hidden; background: #fff; }
+.tab{ padding: 1rem 2.5rem; display: inline-block; color: var(--color-heading); text-decoration: none; border-radius: 50px; }
+.tab.active{ background: var(--color-primary); }
