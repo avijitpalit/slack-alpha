@@ -24,19 +24,43 @@ const inter = Inter({
 
 export default function Home() {
     const [styledText, setStyledText] = useState('')
+    const [normalText, setNormalText] = useState('')
+    const [style, setStyle] = useState(1)
 
     const onInputTextChange = (e: any) => {
-        // console.log(e.target.value);
         //:alphabet-white-n:
         //:a:
+        setNormalText(e.target.value)
+        
         var text = e.target.value
         var text_2 = ''
         for (let i = 0; i < text.length; i++) {
             let alpha = text.charAt(i).toLowerCase()
-            text_2 += alpha == ' ' ? '      ' : `:alphabet-white-${ alpha }:`
+            if(style == 1) text_2 += alpha == ' ' ? '      ' : `:alphabet-white-${ alpha }:`
+            else text_2 += alpha == ' ' ? '      ' : `:${ alpha }:`
         }
         setStyledText(text_2)
-        // console.log(text_2);
+    }
+
+    const onStyleChane = (e: any) => {
+        setStyle(e.target.checked ? 2 : 1)
+        convertText()
+    }
+
+    const onCopyText = () => {
+        navigator.clipboard.writeText(styledText)
+    }
+
+    const convertText = () => {
+        var text_2 = ''
+        for (let i = 0; i < normalText.length; i++) {
+            let alpha = normalText.charAt(i).toLowerCase()
+            if(style == 1) text_2 += alpha == ' ' ? '      ' : `:alphabet-white-${ alpha }:`
+            else text_2 += alpha == ' ' ? '      ' : `:${ alpha }:`
+        }
+        setStyledText(text_2)
+        console.log(text_2);
+        
     }
 
     return (
@@ -46,10 +70,11 @@ export default function Home() {
                 <h1 style={{ fontWeight: 400 }}>Generate Alphabet Emojis <span style={{ fontWeight: '600' }}>for Slack</span></h1>
                 <form className="d-inline-block text-start py-3 px-5 mt-4 form-main" onSubmit={(e: any) => { e.preventDefault(); }}>
                     <div className="form-row d-flex align-items-center">
-                        <div className="d-flex align-items-center tabs">
-                            <a href="#" className="tab active">Style 1</a>
-                            <a href="#" className="tab">Style 2</a>
-                        </div>
+                        <input onChange={ onStyleChane } className='d-none' type="checkbox" name="style" id="style" />
+                        <label htmlFor='style' className="d-flex align-items-center tabs">
+                            <span className="tab active">Style 1</span>
+                            <span className="tab">Style 2</span>
+                        </label>
                     </div>
                     <div className="form-row position-relative mt-4">
                         <label className="w-100" htmlFor="input-text">
@@ -62,7 +87,7 @@ export default function Home() {
                         </label>
                     </div>
                     <div className="form-row text-end mt-3">
-                        <button className="button">Copy</button>
+                        <button onClick={onCopyText} className="button">Copy</button>
                     </div>
                 </form>
             </div>

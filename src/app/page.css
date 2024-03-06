@@ -1,3 +1,37 @@
-.tabs{ border-radius: 50px; overflow: hidden; background: #fff; }
-.tab{ padding: 1rem 2.5rem; display: inline-block; color: var(--color-heading); text-decoration: none; border-radius: 50px; }
-.tab.active{ background: var(--color-primary); }
+.tabs{
+    border-radius: 50px;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+}
+.tabs:before{
+    content: '';
+    position: absolute;
+    width: 50%;
+    background: var(--color-primary);
+    border-radius: 50px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: all .3s;
+}
+.tab{
+    padding: .5rem;
+    display: inline-block;
+    font-weight: 600;
+    color: var(--color-heading);  
+    text-decoration: none;
+    border-radius: 50px;
+    min-width: 7rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+.tab.active{
+    /* background: var(--color-primary); */
+}
+#style:checked ~ .tabs:before{
+    left: 50%;
+    transition: all .3s;
+}
