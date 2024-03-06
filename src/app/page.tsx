@@ -44,6 +44,7 @@ export default function Home() {
 
     const onStyleChane = (e: any) => {
         setStyle(e.target.checked ? 2 : 1)
+        // console.log(style);
         convertText()
     }
 
@@ -53,14 +54,18 @@ export default function Home() {
 
     const convertText = () => {
         var text_2 = ''
+        // console.log(normalText);
+        
         for (let i = 0; i < normalText.length; i++) {
             let alpha = normalText.charAt(i).toLowerCase()
-            if(style == 1) text_2 += alpha == ' ' ? '      ' : `:alphabet-white-${ alpha }:`
+            if(style == 2) text_2 += alpha == ' ' ? '      ' : `:alphabet-white-${ alpha }:`
             else text_2 += alpha == ' ' ? '      ' : `:${ alpha }:`
         }
-        setStyledText(text_2)
-        console.log(text_2);
+        console.log(style);
+        // console.log(text_2);
         
+        setStyledText(text_2)
+        // console.log(text_2);
     }
 
     return (
@@ -86,7 +91,11 @@ export default function Home() {
                             <textarea className='form-control w-100' name="" rows={ 7 } placeholder='Slack emoji alphabets appears here' value={ styledText } readOnly />
                         </label>
                     </div>
-                    <div className="form-row text-end mt-3">
+                    <div className="form-row text-end mt-3 d-flex gap-1 justify-content-end">
+                        <button onClick={() => {
+                            console.log(style);
+                            
+                        }} className="button">Reset</button>
                         <button onClick={onCopyText} className="button">Copy</button>
                     </div>
                 </form>
