@@ -1,0 +1,45 @@
+.backToHome{
+    color: var(--color-primary);
+}
+.backToHome:hover{
+    color: var(--color-primary-dark);
+}
+
+.avatar{
+    width: 10rem;
+    border-radius: 100%;
+    box-shadow: 0 3px 5px #0003;
+    position: relative;
+    z-index: 2;
+}
+
+.socialIcons{
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 100%;
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    opacity: 0;
+    transition: all .3s;
+}
+
+.avatarWrapper{
+    width: 330px;
+}
+.avatarWrapper:hover .socialIcons{
+    opacity: 1;
+    transition: all 1s;
+}
+.avatarWrapper:hover .github{
+    left: 0;
+    transition: all .3s;
+}
+.avatarWrapper:hover .linkedin{
+    left: calc(100% - 50px);
+    transition: all .3s;
+}
