@@ -6,7 +6,7 @@ config.autoAddCss = false;
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import Link from 'next/link';
+// import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default function About() {
@@ -14,7 +14,7 @@ export default function About() {
     <main>
         <div className="container">
             <div className='text-center mt-5'>
-                <Link className='fs-3' href='/'><FontAwesomeIcon className={styles.backToHome} icon={ faHouse } /></Link>
+                {/* <Link className='fs-3' href='/'><FontAwesomeIcon className={styles.backToHome} icon={ faHouse } /></Link> */}
             </div>
             <h1 className='text-center'>About Me</h1>
             <h6 className="text-center mt-4">Avijit Palit - Full stack web developer</h6>
