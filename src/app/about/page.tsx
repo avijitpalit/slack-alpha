@@ -6,7 +6,7 @@ config.autoAddCss = false;
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import Link from 'next/Link';
+import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default function About() {
@@ -21,7 +21,7 @@ export default function About() {
             <div className="text-center">
                 <div className={`text-center mt-3 position-relative d-inline-block mx-auto avatar-wrapper ${styles.avatarWrapper}`}>
                     <img className={styles.avatar} src="https://avijitpalit.netlify.app/static/media/about.bdd7457b9f7a453ec53f.jpg" alt="Me" />
-                    
+
                     <a target='_blank' className={`${styles.socialIcons} ${styles.github}`} href="https://github.com/avijitpalit"><FontAwesomeIcon className='fs-2 text-dark' icon={ faGithub } /></a>
 
                     <a target='_blank' className={`${styles.socialIcons} ${styles.linkedin}`} href="https://www.linkedin.com/in/avijitpalit/"><FontAwesomeIcon className='fs-3 text-dark' icon={ faLinkedin } /></a>
