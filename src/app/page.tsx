@@ -90,6 +90,7 @@ export default function Home() {
         <main className={inter.className}>
             <Link href="/about" className="about-link">About Me</Link>
             <div className="text-center my-5">
+                <p>test</p>
                 <h1 style={{ fontWeight: 400 }}>Generate Alphabet Emojis <span style={{ fontWeight: '600' }}>for Slack</span></h1>
                 <form id='main-form' className="d-inline-block text-start py-3 px-5 mt-4 form-main" onSubmit={(e: any) => { e.preventDefault(); }}>
                     <input type="hidden" name="reset" />
